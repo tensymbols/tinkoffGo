@@ -49,9 +49,8 @@ public class task6 {
         if(containsLastDay==-1) {
             int[] ds = dynamicSum;
             dynamicSum=new int[n+1];
-            for (int i = 0; i < dynamicSum.length-1; i++) {
-                dynamicSum[i]=ds[i];
-            }
+            System.arraycopy(ds, 0, dynamicSum,0, ds.length);
+
             dynamicSum[n]=arr[arr.length-1];
         }
 
@@ -71,10 +70,7 @@ public class task6 {
             boolean cantUse = false;
             for (var j: combs.get(i)) {
                 if((j==arr[n-1])){
-                    if(hasLast){
-
-                    }
-                    else{
+                    if(!hasLast){
                         cantUse=true;
                         break;
                     }
